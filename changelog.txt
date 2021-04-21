@@ -1,0 +1,2 @@
+msc-crawler:1.0.0
+- first version of the scripts + sample application
