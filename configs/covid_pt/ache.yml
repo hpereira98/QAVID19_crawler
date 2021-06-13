@@ -73,7 +73,7 @@ target_storage.english_language_detection_enabled: false
 #
 
 # Max number of pages to be crawled from each web domain
-link_storage.max_pages_per_domain: 10000
+link_storage.max_pages_per_domain: 100000
 # Restricts the crawler to crawl the websites provided as seeds
 link_storage.link_strategy.use_scope: true
 # Allows the crawler to follow forward links
@@ -114,8 +114,8 @@ link_storage.online_learning.enabled: false
 link_storage.link_selector: TopkLinkSelector
 
 # Enable recrawling of sitemaps using at fixed time intervals (in minutes)
-link_storage.recrawl_selector: SitemapsRecrawlSelector
-link_storage.recrawl_selector.sitemaps.interval: 30
+#link_storage.recrawl_selector: SitemapsRecrawlSelector
+#link_storage.recrawl_selector.sitemaps.interval: 30
 
 link_storage.max_size_cache_urls: 10000
 
@@ -138,7 +138,7 @@ crawler_manager.downloader.user_agent.email: a80261@alunos.uminho.pt
 #crawler_manager.downloader.user_agent.string: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
 
 crawler_manager.downloader.download_thread_pool_size: 100
-crawler_manager.downloader.max_retry_count: 2
+crawler_manager.downloader.max_retry_count: 3
 crawler_manager.downloader.valid_mime_types:
  - text/xml
  - text/html
