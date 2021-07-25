@@ -1,6 +1,0 @@
-type: url_regex
-parameters:
-    regular_expressions: [
-        ".*covid.*",
-        ".*corona(virus)?.*",
-    ]

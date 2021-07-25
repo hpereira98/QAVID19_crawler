@@ -12,17 +12,17 @@ target_storage.store_negative_pages: false
 # Enable one of the following lines to use one of the FILESYSTEM_* data format
 #target_storage.data_format.type: FILESYSTEM_HTML
 #target_storage.data_format.type: FILESYSTEM_CBOR
-#target_storage.data_format.type: FILESYSTEM_JSON
+target_storage.data_format.type: FILESYSTEM_JSON
 #
 # Enable this to name files using a fixed-lenght hash instead of the percent-encoded URL
-#target_storage.data_format.filesystem.hash_file_name: true
+target_storage.data_format.filesystem.hash_file_name: true
 #
 # Enable this to compress the file content
 target_storage.data_format.filesystem.compress_data: false
 
 # Enable this to use the FILES data format
-target_storage.data_format.type: FILES
-target_storage.data_format.files.max_file_size: 134217728 # 128mb in bytes
+#target_storage.data_format.type: FILES
+#target_storage.data_format.files.max_file_size: 134217728 # 128mb in bytes
 
 # Enable following lines to use the WARC data format and change its default settings
 #target_storage.data_format.type: WARC                    # enable WARC file format
@@ -44,7 +44,6 @@ target_storage.data_format.files.max_file_size: 134217728 # 128mb in bytes
 #target_storage.data_format.elasticsearch.rest.socket_timeout: 30000
 #target_storage.data_format.elasticsearch.rest.max_retry_timeout_millis: 90000
 
-
 # Instead of configuring a single data format, you can also configure multiple
 # data formats in a list as follows. The settings for each data format should
 # be configured independently, as if you were configuring a single data format.
@@ -54,7 +53,6 @@ target_storage.data_format.files.max_file_size: 134217728 # 128mb in bytes
 #  - FILES
 #  - ELASTICSEARCH
 
-
 # Performs hard focus or soft focus. When hard focus is enabled,
 # the crawler only follows links from pages classified as relevant
 target_storage.hard_focus: false
@@ -63,7 +61,7 @@ target_storage.hard_focus: false
 target_storage.bipartite: false
 
 # Maximum number of pages to visit
-target_storage.visited_page_limit: 10000000
+target_storage.visited_page_limit: 1000000000
 
 # Store only pages that contain english text using language detector
 target_storage.english_language_detection_enabled: false
@@ -73,9 +71,9 @@ target_storage.english_language_detection_enabled: false
 #
 
 # Max number of pages to be crawled from each web domain
-link_storage.max_pages_per_domain: 10000
+link_storage.max_pages_per_domain: 1000000000
 # Restricts the crawler to crawl the websites provided as seeds
-link_storage.link_strategy.use_scope: true
+link_storage.link_strategy.use_scope: false
 # Allows the crawler to follow forward links
 link_storage.link_strategy.outlinks: true
 # Gets backlinks of the pages from a search engine used by the bipartite crawling
@@ -92,7 +90,6 @@ link_storage.link_classifier.type: LinkClassifierBaseline
 # Restricts crawler to follow links within a given "hops" of the seeds
 #link_storage.link_classifier.type: MaxDepthLinkClassifier
 #link_storage.link_classifier.max_depth: 1
-
 
 # Retrain link classifiers on-the-fly
 link_storage.online_learning.enabled: false
@@ -114,8 +111,8 @@ link_storage.online_learning.enabled: false
 link_storage.link_selector: TopkLinkSelector
 
 # Enable recrawling of sitemaps using at fixed time intervals (in minutes)
-link_storage.recrawl_selector: SitemapsRecrawlSelector
-link_storage.recrawl_selector.sitemaps.interval: 30
+#link_storage.recrawl_selector: SitemapsRecrawlSelector
+#link_storage.recrawl_selector.sitemaps.interval: 30
 
 link_storage.max_size_cache_urls: 10000
 
@@ -138,14 +135,14 @@ crawler_manager.downloader.user_agent.email: a80261@alunos.uminho.pt
 #crawler_manager.downloader.user_agent.string: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
 
 crawler_manager.downloader.download_thread_pool_size: 100
-crawler_manager.downloader.max_retry_count: 2
+crawler_manager.downloader.max_retry_count: 3
 crawler_manager.downloader.valid_mime_types:
- - text/xml
- - text/html
- - text/plain
- - application/x-asp
- - application/xhtml+xml
- - application/vnd.wap.xhtml+xml
+  - text/xml
+  - text/html
+  - text/plain
+  - application/x-asp
+  - application/xhtml+xml
+  - application/vnd.wap.xhtml+xml
 
 # Use OkHttpFetcher instead of SimpleHttpFetcher
 crawler_manager.downloader.use_okhttp3_fetcher: true
