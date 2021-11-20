@@ -88,8 +88,8 @@ link_storage.link_classifier.type: LinkClassifierBaseline
 #link_storage.link_classifier.parameters.class_values: ["0", "1", "2"]
 
 # Restricts crawler to follow links within a given "hops" of the seeds
-#link_storage.link_classifier.type: MaxDepthLinkClassifier
-#link_storage.link_classifier.max_depth: 1
+# link_storage.link_classifier.type: MaxDepthLinkClassifier
+# link_storage.link_classifier.max_depth: 1
 
 # Retrain link classifiers on-the-fly
 link_storage.online_learning.enabled: false
@@ -111,8 +111,11 @@ link_storage.online_learning.enabled: false
 link_storage.link_selector: TopkLinkSelector
 
 # Enable recrawling of sitemaps using at fixed time intervals (in minutes)
-#link_storage.recrawl_selector: SitemapsRecrawlSelector
-#link_storage.recrawl_selector.sitemaps.interval: 30
+link_storage.recrawl_selector: SitemapsRecrawlSelector
+link_storage.recrawl_selector.sitemaps.interval: 360
+
+# Discovery of new links using sitemap.xml protocol
+link_storage.download_sitemap_xml: true
 
 link_storage.max_size_cache_urls: 10000
 
@@ -152,6 +155,3 @@ crawler_manager.downloader.okhttp3.proxy_host: null
 crawler_manager.downloader.okhttp3.proxy_username: null
 crawler_manager.downloader.okhttp3.proxy_password: null
 crawler_manager.downloader.okhttp3.proxy_port: 8080
-
-# Discovery of new links using sitemap.xml protocol
-link_storage.download_sitemap_xml: false
